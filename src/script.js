@@ -1,5 +1,5 @@
 // Function to generate a strong random password according to NIST 800-171
-function generatePassword(length = 12) {
+function generatePassword(length = 15) {
     const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const lowerCase = 'abcdefghijklmnopqrstuvwxyz';
     const numbers = '0123456789';
@@ -47,6 +47,17 @@ function checkPasswordStrength(password) {
     }
 }
 
+// Add this function to handle copying to clipboard
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+        const copyBtn = document.getElementById('copyBtn');
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => {
+            copyBtn.textContent = 'Copy';
+        }, 2000);
+    });
+}
+
 // Event listeners
 document.getElementById('generateBtn').addEventListener('click', () => {
     const password = generatePassword();
@@ -54,10 +65,24 @@ document.getElementById('generateBtn').addEventListener('click', () => {
     const { strength, color } = checkPasswordStrength(password);
     document.getElementById('strengthMessage').textContent = `Password Strength: ${strength}`;
     document.getElementById('strengthMessage').style.color = color;
+    
+    // Enable the copy button after generating a password
+    document.getElementById('copyBtn').disabled = false;
 });
 
 document.getElementById('passwordInput').addEventListener('input', (e) => {
     const { strength, color } = checkPasswordStrength(e.target.value);
     document.getElementById('strengthMessage').textContent = `Password Strength: ${strength}`;
     document.getElementById('strengthMessage').style.color = color;
+});
+
+// Add event listener for the copy button
+document.getElementById('copyBtn').addEventListener('click', () => {
+    const password = document.getElementById('generatedPassword').value;
+    copyToClipboard(password);
+});
+
+// Disable right click
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
 });

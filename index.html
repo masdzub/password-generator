@@ -3,21 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Generate strong passwords and check their strength with our easy-to-use Password Generator & Strength Checker.">
   <title>Password Generator & Strength Checker</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Add favicon -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-  <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-    <h1 class="text-2xl font-bold text-center mb-4">Password Generator</h1>
-
-    <button id="generateBtn" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4">Generate Password</button>
+  <header class="w-full max-w-md p-6 bg-white rounded-lg shadow-md mb-4">
+    <h1 class="text-3xl font-bold text-center mb-4">Password Generator</h1>
+  </header>
+  
+  <main class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+    <button id="generateBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 transition duration-200">Generate Password</button>
     
     <input id="generatedPassword" class="w-full p-2 border border-gray-300 rounded mb-4" type="text" placeholder="Generated password" readonly>
+    
+    <button id="copyBtn" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-4 transition duration-200">Copy</button>
     
     <h2 class="text-xl font-bold mb-2">Password Strength Checker</h2>
     <input id="passwordInput" class="w-full p-2 border border-gray-300 rounded mb-2" type="text" placeholder="Enter your password">
     <div id="strengthMessage" class="text-center font-medium"></div>
-  </div>
+  </main>
+
+  <footer class="w-full max-w-md p-6 bg-white rounded-lg shadow-md mt-4">
+    <p class="text-center text-gray-600">
+        © 2024 <a href="https://github.com/masdzub/password-generator" target="_blank" class="text-blue-500 hover:underline">Password Generator</a>. All rights reserved.
+    </p>
+  </footer>
 
   <script src="./src/script.js"></script>
 </body>

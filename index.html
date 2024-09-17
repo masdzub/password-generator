@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Password Generator & Checker</title>
-  <link href="/style.css" rel="stylesheet">
+  <title>Password Generator & Strength Checker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <div id="app" class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-    <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-      <h1 class="text-2xl font-bold text-center mb-4">Password Generator</h1>
-      <button @click="generatePassword" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4">Generate Password</button>
-      <input v-model="password" class="w-full p-2 border border-gray-300 rounded mb-4" type="text" placeholder="Generated password" readonly>
-      <h2 class="text-xl font-bold mb-2">Password Strength Checker</h2>
-      <input v-model="userPassword" @input="checkStrength" class="w-full p-2 border border-gray-300 rounded mb-2" type="text" placeholder="Enter your password">
-      <div :style="{ color: strength.color }" class="text-center font-medium">{{ strength.message }}</div>
-    </div>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+  <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold text-center mb-4">Password Generator</h1>
+
+    <button id="generateBtn" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4">Generate Password</button>
+    
+    <input id="generatedPassword" class="w-full p-2 border border-gray-300 rounded mb-4" type="text" placeholder="Generated password" readonly>
+    
+    <h2 class="text-xl font-bold mb-2">Password Strength Checker</h2>
+    <input id="passwordInput" class="w-full p-2 border border-gray-300 rounded mb-2" type="text" placeholder="Enter your password">
+    <div id="strengthMessage" class="text-center font-medium"></div>
   </div>
-  <script type="module" src="/app.js"></script>
+
+  <script src="./src/script.js"></script>
 </body>
 </html>
